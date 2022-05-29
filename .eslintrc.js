@@ -24,20 +24,19 @@ module.exports = {
 				'@typescript-eslint/explicit-function-return-type': 'off',
 				'@typescript-eslint/no-inferrable-type': 'off',
 				'no-unused-vars': 'off',
-				'@typescript-eslint/no-unused-vars': ['error'],
+				'@typescript-eslint/no-unused-vars': ['warn'],
 				'no-extra-boolean-cast': 'off',
 				// All the @typescript-eslint/* rules here...
-				'@typescript-eslint/no-unnecessary-type-arguments': 'error',
+				'@typescript-eslint/no-unnecessary-type-arguments': 'warn',
 				'@typescript-eslint/no-explicit-any': 'off',
-				'@typescript-eslint/prefer-nullish-coalescing': 'error',
+				'@typescript-eslint/prefer-nullish-coalescing': 'warn',
 				'@typescript-eslint/prefer-optional-chain': 'warn',
-				'@typescript-eslint/explicit-module-boundary-types': 'error',
-				'@typescript-eslint/no-shadow': ['error'],
-				'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+				'@typescript-eslint/explicit-module-boundary-types': 'warn',
+				'@typescript-eslint/no-shadow': ['warn'],
+				'react-hooks/rules-of-hooks': 'warn', // Checks rules of Hooks
 				'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
 				'no-shadow': 'off',
-				indent: ['error', 'tab'],
-				'no-tabs': ['error', { allowIndentationTabs: true }],
+				"no-tabs": ["error", {"allowIndentationTabs": true}]
 			},
 			parser: '@typescript-eslint/parser',
 			parserOptions: {
