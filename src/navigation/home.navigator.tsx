@@ -6,7 +6,7 @@ import { CompositeNavigationProp, RouteProp } from '@react-navigation/core';
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerNavigationProp } from '@react-navigation/drawer';
 import OtherPage from '@scenes/OtherPage';
 import React, { FC } from 'react';
-import { AppRoute } from './app.routes';
+import { AppRoute } from '@types/app.routes';
 import { ProfileNavigator } from './profile.navigator';
 import { TodoNavigator } from './todo.navigator';
 

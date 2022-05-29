@@ -1,5 +1,6 @@
 import { palette } from '@theme/colors';
 import { StyleSheet } from 'react-native';
+import { fonts } from './fonts';
 
 const theme = {
 	spacing: {
@@ -10,7 +11,7 @@ const theme = {
 	colors: {
 		statusBarBackground: palette.CONCRETE,
 		headerBackground: palette.WHITE,
-		mainBackground: palette.MIDNIGHT_BLUE,
+		mainBackground: palette.WHITE,
 		backButtonText: palette.BELIZE_HOLE,
 		transparent: palette.TRANSPARENT,
 		primary: palette.MIDNIGHT_BLUE,
@@ -18,31 +19,30 @@ const theme = {
 	},
 	breakpoints: {},
 	textVariants: {
-		// ButtonText: {
-		//   fontSize: 15,
-		//   lineHeight: 20,
-		//   color: 'contrastText',
-		// },
-		// @TODO: to be defined
-		// header: {
-		//   fontFamily: fonts.boldOS,
-		//   fontSize: 34,
-		//   lineHeight: 42.5,
-		//   color: palette.WET_ASPHALT,
-		// },
-		// subheader: {
-		//   fontFamily: fonts.semiBoldOS,
-		//   fontWeight: '600',
-		//   fontSize: 28,
-		//   lineHeight: 36,
-		//   color: palette.WET_ASPHALT,
-		// },
-		// body: {
-		//   fontFamily: fonts.regularOS,
-		//   fontSize: 16,
-		//   lineHeight: 24,
-		//   color: palette.WET_ASPHALT,
-		// },
+		ButtonText: {
+			fontSize: 15,
+			lineHeight: 20,
+			color: 'contrastText',
+		},		
+		header: {
+			fontFamily: fonts.bold,
+			fontSize: 34,
+			lineHeight: 42.5,
+			color: palette.WET_ASPHALT,
+		},
+		subheader: {
+			fontFamily: fonts.regular,
+			fontWeight: '600',
+			fontSize: 28,
+			lineHeight: 36,
+			color: palette.WET_ASPHALT,
+		},
+		body: {
+			fontFamily: fonts.light,
+			fontSize: 16,
+			lineHeight: 24,
+			color: palette.WET_ASPHALT,
+		},
 	},
 };
 

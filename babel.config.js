@@ -27,6 +27,8 @@ module.exports = {
 					'@services': './src/services',
 					'@theme': './src/theme',
 					'@utils': './src/utils',
+					'@types': './src/types',
+					'@options': './src/options',
 					'@env': './src/env.js',
 				},
 			},

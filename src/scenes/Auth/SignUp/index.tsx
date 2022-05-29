@@ -1,30 +1,33 @@
 import { FormInput } from '@components/Forms';
 import { Toolbar } from '@components/Toolbar';
 import { SignUpDto, SignUpSchema } from '@dto/auth/SignUpDto';
-import { AppRoute } from '@navigation/app.routes';
+import { AppRoute } from '@types/app.routes';
 import { SignUpScreenProps } from '@navigation/auth.navigator';
 import { StackActions, useNavigation } from '@react-navigation/core';
 import { Button, Layout, LayoutElement } from '@ui-kitten/components';
 import { Formik, FormikProps } from 'formik';
 import React, { useCallback } from 'react';
-import { ImageBackground } from 'react-native';
+import { Image, ImageBackground, View } from 'react-native';
 import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context';
 import styles from './styles';
+import { globalStyle } from '@theme';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { GenericNavigationProps } from '@types/navigation.types';
 
 export const SignUp = (): LayoutElement => {
 	// const dispatch = useDispatch();
-	const navigation = useNavigation();
+	const navigation = useNavigation<GenericNavigationProps>();
 	const popAction = useCallback(() => StackActions.pop(), []);
 
 	const insets: EdgeInsets = useSafeAreaInsets();
 
 	const onFormSubmit = (values: SignUpDto): void => {
 		console.log(values);
-		navigation.navigate({ key: AppRoute.HOME });
+		navigation.navigate(AppRoute.HOME);
 	};
 
 	const navigateSignIn = (): void => {
-		navigation.navigate({ key: AppRoute.SIGN_IN });
+		navigation.navigate(AppRoute.SIGN_IN);
 	};
 
 	const goBack = useCallback(() => {
@@ -33,9 +36,27 @@ export const SignUp = (): LayoutElement => {
 
 	const renderForm = (props: FormikProps<SignUpDto>) => (
 		<React.Fragment>
-			<FormInput id="email" style={styles.formControl} placeholder="Email" keyboardType="email-address" />
-			<FormInput id="password" style={styles.formControl} placeholder="Password" />
-			<FormInput id="username" style={styles.formControl} placeholder="Username" />
+			<FormInput 
+				id="username" 
+				style={styles.formControl} 
+				placeholder="Username" 
+			/>
+			<FormInput 
+				id="email" 
+				style={styles.formControl} 
+				placeholder="Email" 
+				keyboardType="email-address" 
+			/>
+			<FormInput 
+				id="password" 
+				style={styles.formControl} 
+				placeholder="Password" 
+			/>
+			<FormInput 
+				id="passwordConfirmation" 
+				style={styles.formControl} 
+				placeholder="Password Confirmation" 
+			/>
 			<Button style={styles.submitButton} onPress={props.handleSubmit}>
 				SIGN UP
 			</Button>
@@ -43,12 +64,13 @@ export const SignUp = (): LayoutElement => {
 	);
 
 	return (
-		<React.Fragment>
-			<ImageBackground
-				style={[styles.appBar, { paddingTop: insets.top }]}
-				source={require('@assets/images/image-background.jpeg')}>
-				<Toolbar appearance="control" onBackPress={goBack} />
-			</ImageBackground>
+		<KeyboardAwareScrollView contentContainerStyle={[globalStyle.fullContainer, styles.container]}>
+			<View style={[globalStyle.justifyCenter, globalStyle.alignCenter]}>
+				<Image                 
+					source={require('@assets/images/Logo.png')}
+					style={[styles.logo]}
+				/>    	
+			</View> 			
 			<Layout style={styles.formContainer}>
 				<Formik initialValues={SignUpDto.empty()} validationSchema={SignUpSchema} onSubmit={onFormSubmit}>
 					{renderForm}
@@ -57,6 +79,6 @@ export const SignUp = (): LayoutElement => {
 					Already have an account?
 				</Button>
 			</Layout>
-		</React.Fragment>
+		</KeyboardAwareScrollView>
 	);
 };

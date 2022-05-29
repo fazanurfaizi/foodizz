@@ -3,7 +3,7 @@ import Homepage from '@scenes/Homepage';
 import ModalPage from '@scenes/ModalPage';
 import OtherPage from '@scenes/OtherPage';
 import React, { FC } from 'react';
-import { routeOverlayOption } from './routeOptions';
+import { routeOverlayOption } from '@options/routeOptions';
 
 const RootStack = createStackNavigator();
 const MainStack = createStackNavigator();

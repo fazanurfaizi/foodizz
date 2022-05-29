@@ -2,7 +2,7 @@ import { CompositeNavigationProp, RouteProp } from '@react-navigation/core';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
 import { ProfileScreen } from '@scenes/Profile';
 import React from 'react';
-import { AppRoute } from './app.routes';
+import { AppRoute } from '@types/app.routes';
 import { ProfileTabNavigationProp } from './home.navigator';
 
 type ProfileNavigatorParams = {

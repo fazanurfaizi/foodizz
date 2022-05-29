@@ -1,7 +1,7 @@
 import EnvInfoView from '@components/AppVersion';
 import GenericHeader from '@components/GenericHeader';
 import NHCSafeAreaView from '@components/NHCSafeAreaView';
-import { GenericNavigationProps } from '@navigation/types';
+import { GenericNavigationProps } from '@types/navigation.types';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Icon } from '@ui-kitten/components';
 import React, { useCallback, FC, memo } from 'react';

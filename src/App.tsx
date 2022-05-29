@@ -2,7 +2,7 @@ import Splashscreen from '@components/Splashscreen';
 import * as eva from '@eva-design/eva';
 import '@i18n';
 import { AppNavigator } from '@navigation/app.navigator';
-import { AppRoute } from '@navigation/app.routes';
+import { AppRoute } from '@types/app.routes';
 import { NavigationContainer } from '@react-navigation/native';
 import { store, persistor } from '@redux/store';
 import theme, { globalStyle } from '@theme';
@@ -20,7 +20,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 enableScreens();
 
 const App: FC = () => {
-	const isAuthorized = true;
+	const isAuthorized = false;
 
 	return (
 		<Suspense fallback={<Splashscreen />}>

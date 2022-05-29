@@ -1,16 +1,18 @@
-import { FormInput } from '@components/Forms';
+import { FormInput, SocialButton } from '@components/Forms';
 import { SignInDto, SignInSchema } from '@dto/auth/SignInDto';
-import { AppRoute } from '@navigation/app.routes';
+import { AppRoute } from '@types/app.routes';
 import { SignInScreenProps } from '@navigation/auth.navigator';
-import { GenericNavigationProps } from '@navigation/types';
+import { GenericNavigationProps } from '@types/navigation.types';
 import { useNavigation } from '@react-navigation/core';
 import { Button, CheckBox, Layout, LayoutElement } from '@ui-kitten/components';
 import { Icon } from '@ui-kitten/components';
 import { Formik, FormikProps } from 'formik';
 import React, { useState } from 'react';
-import { ImageBackground, View } from 'react-native';
+import { Image, ImageBackground, View } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
+import theme, { globalStyle } from '@theme';
 
 export const SignIn = (props: SignInScreenProps): LayoutElement => {
 	const [shouldRemember, setShouldRemember] = useState<boolean>(false);
@@ -42,7 +44,11 @@ export const SignIn = (props: SignInScreenProps): LayoutElement => {
 
 	const renderForm = (props: FormikProps<SignInDto>) => (
 		<React.Fragment>
-			<FormInput id="email" style={styles.formControl} placeholder="Email" keyboardType="email-address" />
+			<FormInput 
+				id="email" 
+				style={styles.formControl} 
+				placeholder="Email" 
+				keyboardType="email-address" />
 			<FormInput
 				id="password"
 				style={styles.formControl}
@@ -65,16 +71,35 @@ export const SignIn = (props: SignInScreenProps): LayoutElement => {
 	);
 
 	return (
-		<React.Fragment>
-			<ImageBackground style={styles.appBar} source={require('@assets/images/image-background.jpeg')} />
-			<Layout>
+		<KeyboardAwareScrollView contentContainerStyle={[globalStyle.fullContainer, styles.container]}>
+			<View style={[globalStyle.justifyCenter, globalStyle.alignCenter]}>
+				<Image                 
+					source={require('@assets/images/Logo.png')}
+					style={[styles.logo]}
+				/>    	
+			</View>  
+			<Layout style={styles.formContainer}>
 				<Formik initialValues={SignInDto.empty()} validationSchema={SignInSchema} onSubmit={onFormSubmit}>
 					{renderForm}
 				</Formik>
 				<Button style={styles.noAccountButton} appearance="ghost" status="basic" onPress={navigateSignUp}>
 					Don't have an account?
 				</Button>
+				<View style={[globalStyle.justifyCenter, globalStyle.alignCenter]}>
+					<SocialButton
+						title='Sign in with Google'
+						icon='google'
+						color='#de4d41'
+						backgroundColor='#f5e7ea'
+					/>
+					<SocialButton
+						title='Sign in with Facebook'
+						icon='facebook'
+						color='#4867aa'
+						backgroundColor='#e6eaf4'
+					/>
+				</View>
 			</Layout>
-		</React.Fragment>
+		</KeyboardAwareScrollView>
 	);
 };

@@ -3,7 +3,7 @@ import { createStackNavigator, StackNavigationProp } from '@react-navigation/sta
 import { SignIn, SignUp } from '@scenes/Auth';
 import React from 'react';
 import { AppNavigatorProps } from './app.navigator';
-import { AppRoute } from './app.routes';
+import { AppRoute } from '@types/app.routes';
 
 type StackNavigationProps = React.ComponentProps<typeof Stack.Navigator>;
 

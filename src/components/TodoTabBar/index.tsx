@@ -1,9 +1,9 @@
 import { InfoIcon, LogoutIcon, MenuIcon } from '@components/Icon';
 import { SafeAreaLayout, SaveAreaInset, SafeAreaLayoutElement } from '@components/SafeAreaLayout';
 import { Toolbar } from '@components/Toolbar';
-import { AppRoute } from '@navigation/app.routes';
+import { AppRoute } from '@types/app.routes';
 import { TodoScreenProps } from '@navigation/todo.navigator';
-import { GenericNavigationProps } from '@navigation/types';
+import { GenericNavigationProps } from '@types/navigation.types';
 import { useNavigation } from '@react-navigation/core';
 import { TabBar, Tab, Divider, TabElement, MenuItem } from '@ui-kitten/components';
 import React from 'react';

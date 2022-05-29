@@ -9,7 +9,20 @@ export class SignUpDto {
 }
 
 export const SignUpSchema = Yup.object().shape({
-	email: Yup.string().email('Invalid email'),
-	username: Yup.string().min(2, 'Username must be at least 2 characters'),
-	password: Yup.string().min(8, 'Password must be at least 8 characters'),
+	username: Yup.string()
+        .required('Username is required')
+        .label('Username'),
+    email: Yup.string()
+        .required('Email is required')
+        .email('Please enter valid email')
+        .label('Email'),
+    password: Yup.string()
+        .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
+        .matches(/\w*[A-Z]\w*/, 'Password must have a capital letter')
+        .matches(/\d/, 'Password must have a number')
+        .min(8, ({min}) => `Password must be at least ${min} characters`)
+        .required('Password is required')
+        .label('Password'),
+    passwordConfirmation: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
 });
