@@ -11,42 +11,42 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles';
 
 const OtherPage: FC = () => {
-  const dispatch = useDispatch();
-  const allMovies = useSelector(allFilms);
-  const { t } = useTranslation();
-  const navigation = useNavigation();
-  const popAction = useCallback(() => StackActions.pop(), []);
+	const dispatch = useDispatch();
+	const allMovies = useSelector(allFilms);
+	const { t } = useTranslation();
+	const navigation = useNavigation();
+	const popAction = useCallback(() => StackActions.pop(), []);
 
-  const goBack = useCallback(() => {
-    navigation.dispatch(popAction);
-  }, [navigation, popAction]);
+	const goBack = useCallback(() => {
+		navigation.dispatch(popAction);
+	}, [navigation, popAction]);
 
-  useEffect(() => {
-    dispatch(getAllFilmsRequest({ limit: 30 }));
-  }, [dispatch]);
+	useEffect(() => {
+		dispatch(getAllFilmsRequest({ limit: 30 }));
+	}, [dispatch]);
 
-  const renderItem = useCallback(
-    ({ item }) => (
-      <View key={item.key}>
-        <Text style={styles.mainText}>{item.title}</Text>
-      </View>
-    ),
-    [],
-  );
+	const renderItem = useCallback(
+		({ item }) => (
+			<View key={item.key}>
+				<Text style={styles.mainText}>{item.title}</Text>
+			</View>
+		),
+		[],
+	);
 
-  return (
-    <NHCSafeAreaView>
-      <GenericHeader onBackClicked={goBack} title={t('AnotherPage:OtherPage')} />
+	return (
+		<NHCSafeAreaView>
+			<GenericHeader onBackClicked={goBack} title={t('AnotherPage:OtherPage')} />
 
-      <FlatList
-        data={allMovies}
-        style={styles.container}
-        contentContainerStyle={styles.content}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-      />
-    </NHCSafeAreaView>
-  );
+			<FlatList
+				data={allMovies}
+				style={styles.container}
+				contentContainerStyle={styles.content}
+				renderItem={renderItem}
+				keyExtractor={item => item.id}
+			/>
+		</NHCSafeAreaView>
+	);
 };
 
 export default React.memo(OtherPage);

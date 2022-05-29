@@ -9,20 +9,20 @@ const sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware];
 
 if (__DEV__) {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const createDebugger = require('redux-flipper').default;
-  middleware.push(createDebugger());
+	// eslint-disable-next-line @typescript-eslint/no-var-requires
+	const createDebugger = require('redux-flipper').default;
+	middleware.push(createDebugger());
 }
 
 // Create Store
 const store = configureStore({
-  reducer: persistedRootReducer,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      immutableCheck: false,
-      serializableCheck: false,
-    }).concat(middleware),
-  devTools: process.env.NODE_ENV !== 'production',
+	reducer: persistedRootReducer,
+	middleware: getDefaultMiddleware =>
+		getDefaultMiddleware({
+			immutableCheck: false,
+			serializableCheck: false,
+		}).concat(middleware),
+	devTools: process.env.NODE_ENV !== 'production',
 });
 
 // Start rootSaga

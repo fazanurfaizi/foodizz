@@ -3,15 +3,15 @@ import { allFilmsReducer } from '@redux/ghibli/reducers';
 import { persistCombineReducers } from 'redux-persist';
 
 const reducers = {
-  films: allFilmsReducer,
+	films: allFilmsReducer,
 };
 
 const persistConfig = {
-  key: 'root',
-  storage: AsyncStorage,
-  // There is an issue in the source code of redux-persist (default setTimeout does not cleaning)
-  timeout: undefined,
-  whitelist: ['onBoard'],
+	key: 'root',
+	storage: AsyncStorage,
+	// There is an issue in the source code of redux-persist (default setTimeout does not cleaning)
+	timeout: undefined,
+	whitelist: ['onBoard'],
 };
 
 // Setup Reducers

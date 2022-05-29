@@ -5,15 +5,15 @@ import { View, Text } from 'react-native';
 import styles from './styles';
 
 const ModalPage: FC = () => {
-  const [t] = useTranslation();
+	const [t] = useTranslation();
 
-  return (
-    <GenericModal pageTitle={t('ModalPage:PageName')}>
-      <View>
-        <Text style={styles.mainText}>{t('ModalPage:thisIsAModal')}</Text>
-      </View>
-    </GenericModal>
-  );
+	return (
+		<GenericModal pageTitle={t('ModalPage:PageName')}>
+			<View>
+				<Text style={styles.mainText}>{t('ModalPage:thisIsAModal')}</Text>
+			</View>
+		</GenericModal>
+	);
 };
 
 export default ModalPage;
