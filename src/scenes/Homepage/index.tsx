@@ -1,7 +1,6 @@
-import EnvInfoView from '@components/AppVersion';
 import GenericHeader from '@components/GenericHeader';
 import NHCSafeAreaView from '@components/NHCSafeAreaView';
-import { GenericNavigationProps } from '@types/navigation.types';
+import { GenericNavigationProps } from '@types';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Icon } from '@ui-kitten/components';
 import React, { useCallback, FC, memo } from 'react';
@@ -65,9 +64,7 @@ const Home: FC = () => {
 							<Text style={styles.navigationButtonBorderedText}>{t('Homepage:openModal')}</Text>
 						)}
 					/>
-				</View>
-
-				<EnvInfoView />
+				</View>				
 			</ScrollView>
 		</NHCSafeAreaView>
 	);

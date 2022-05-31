@@ -1,25 +1,21 @@
 import { FormInput } from '@components/Forms';
-import { Toolbar } from '@components/Toolbar';
 import { SignUpDto, SignUpSchema } from '@dto/auth/SignUpDto';
-import { AppRoute } from '@types/app.routes';
-import { SignUpScreenProps } from '@navigation/auth.navigator';
+import { AppRoute, GenericNavigationProps } from '@navigation/types';
 import { StackActions, useNavigation } from '@react-navigation/core';
 import { Button, Layout, LayoutElement } from '@ui-kitten/components';
 import { Formik, FormikProps } from 'formik';
 import React, { useCallback } from 'react';
-import { Image, ImageBackground, View } from 'react-native';
-import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Image, View } from 'react-native';
 import styles from './styles';
 import { globalStyle } from '@theme';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { GenericNavigationProps } from '@types/navigation.types';
+import NHCSafeAreaView from '@components/NHCSafeAreaView';
+import GenericHeader from '@components/GenericHeader';
 
 export const SignUp = (): LayoutElement => {
 	// const dispatch = useDispatch();
 	const navigation = useNavigation<GenericNavigationProps>();
-	const popAction = useCallback(() => StackActions.pop(), []);
-
-	const insets: EdgeInsets = useSafeAreaInsets();
+	const popAction = useCallback(() => StackActions.pop(), []);	
 
 	const onFormSubmit = (values: SignUpDto): void => {
 		console.log(values);
@@ -64,21 +60,25 @@ export const SignUp = (): LayoutElement => {
 	);
 
 	return (
-		<KeyboardAwareScrollView contentContainerStyle={[globalStyle.fullContainer, styles.container]}>
-			<View style={[globalStyle.justifyCenter, globalStyle.alignCenter]}>
-				<Image                 
-					source={require('@assets/images/Logo.png')}
-					style={[styles.logo]}
-				/>    	
-			</View> 			
-			<Layout style={styles.formContainer}>
-				<Formik initialValues={SignUpDto.empty()} validationSchema={SignUpSchema} onSubmit={onFormSubmit}>
-					{renderForm}
-				</Formik>
-				<Button style={styles.haveAccountButton} appearance="ghost" status="basic" onPress={navigateSignIn}>
-					Already have an account?
-				</Button>
-			</Layout>
-		</KeyboardAwareScrollView>
+		<NHCSafeAreaView>
+			<GenericHeader onBackClicked={goBack} title='Sign Up' />
+
+			<KeyboardAwareScrollView contentContainerStyle={[globalStyle.fullContainer, styles.container]}>
+				<View style={[globalStyle.justifyCenter, globalStyle.alignCenter]}>
+					<Image                 
+						source={require('@assets/images/Logo.png')}
+						style={[styles.logo]}
+					/>    	
+				</View> 			
+				<Layout style={styles.formContainer}>
+					<Formik initialValues={SignUpDto.empty()} validationSchema={SignUpSchema} onSubmit={onFormSubmit}>
+						{renderForm}
+					</Formik>
+					<Button style={styles.haveAccountButton} appearance="ghost" status="basic" onPress={navigateSignIn}>
+						Already have an account?
+					</Button>
+				</Layout>
+			</KeyboardAwareScrollView>
+		</NHCSafeAreaView>		
 	);
 };

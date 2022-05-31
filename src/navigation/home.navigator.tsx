@@ -2,11 +2,11 @@ import { HomeDrawer } from '@components/HomeDrawer';
 import HomeTabBar from '@components/HomeTabBar';
 import { HomeIcon, InfoIcon, LayoutIcon, PersonIcon } from '@components/Icon';
 import { BottomTabBarProps, BottomTabNavigationProp, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { CompositeNavigationProp, RouteProp } from '@react-navigation/core';
+import { CompositeNavigationProp } from '@react-navigation/core';
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerNavigationProp } from '@react-navigation/drawer';
 import OtherPage from '@scenes/OtherPage';
 import React, { FC } from 'react';
-import { AppRoute } from '@types/app.routes';
+import { AppRoute } from '@navigation/types';
 import { ProfileNavigator } from './profile.navigator';
 import { TodoNavigator } from './todo.navigator';
 
@@ -29,11 +29,6 @@ export type ProfileTabNavigationProp = CompositeNavigationProp<
 	BottomTabNavigationProp<HomeBottomTabsNavigatorParams, AppRoute.PROFILE>,
 	DrawerNavigationProp<HomeDrawerNavigatorParams, AppRoute.HOME>
 >;
-
-export interface AboutScreenProps {
-	navigation: DrawerNavigationProp<HomeDrawerNavigatorParams, AppRoute.ABOUT>;
-	route: RouteProp<HomeDrawerNavigatorParams, AppRoute.ABOUT>;
-}
 
 export type BottomHomeScreenProps = BottomTabBarProps & {
 	navigation: TodoTabNavigationProp;

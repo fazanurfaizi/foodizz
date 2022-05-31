@@ -92,10 +92,7 @@
       ],
       "@utils/*": [
         "src/utils/*"
-      ],
-      "@types/*": [
-        "src/types/*"
-      ],
+      ],      
       "@options/*": [
         "src/options/*"
       ],

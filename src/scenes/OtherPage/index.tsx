@@ -17,7 +17,7 @@ const OtherPage: FC = () => {
 	const navigation = useNavigation();
 	const popAction = useCallback(() => StackActions.pop(), []);
 
-	const goBack = useCallback(() => {
+	const goBack = useCallback(() => {		
 		navigation.dispatch(popAction);
 	}, [navigation, popAction]);
 

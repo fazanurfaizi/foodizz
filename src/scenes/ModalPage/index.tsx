@@ -1,4 +1,4 @@
-import GenericModal from '@components/GenericModal';
+import GenericModal from '@components/Modals/GenericModal';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View, Text } from 'react-native';

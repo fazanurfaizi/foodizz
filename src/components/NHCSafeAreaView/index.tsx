@@ -6,6 +6,7 @@ import { Edge, SafeAreaView } from 'react-native-safe-area-context';
 interface ISAW {
 	readonly edges?: Edge[];
 	areaStyle?: StyleProp<ViewStyle>;
+	children: JSX.Element|JSX.Element[];
 }
 
 const NHCSafeAreaView: FC<ISAW> = ({ children, edges = ['top', 'right', 'left'], areaStyle = {} }) => {

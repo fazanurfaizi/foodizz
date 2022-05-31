@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { AppRoute } from '@types/app.routes';
+import { AppRoute } from '@navigation/types';
 import { AuthNavigator } from './auth.navigator';
 import { HomeNavigator } from './home.navigator';
 import { routeOverlayOption } from '@options/routeOptions';

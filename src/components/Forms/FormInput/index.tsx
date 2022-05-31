@@ -14,7 +14,7 @@ export const FormInput = ({ id, ...inputProps }: FormInputProps): InputElement =
 
 	const fieldProps: Partial<InputProps> = {
 		status: error && 'danger',
-		accessoryRight: error && <Icon name="alert-triangle-outline" />,
+		accessoryRight: error ? <Icon name="alert-triangle-outline" /> : inputProps.accessoryRight,
 	};
 
 	return <Input {...inputProps} {...fieldProps} caption={error} onChangeText={context.handleChange(id)} />;

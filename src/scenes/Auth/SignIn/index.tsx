@@ -1,27 +1,25 @@
 import { FormInput, SocialButton } from '@components/Forms';
 import { SignInDto, SignInSchema } from '@dto/auth/SignInDto';
-import { AppRoute } from '@types/app.routes';
-import { SignInScreenProps } from '@navigation/auth.navigator';
-import { GenericNavigationProps } from '@types/navigation.types';
+import { AppRoute, GenericNavigationProps } from '@navigation/types';
 import { useNavigation } from '@react-navigation/core';
 import { Button, CheckBox, Layout, LayoutElement } from '@ui-kitten/components';
 import { Icon } from '@ui-kitten/components';
 import { Formik, FormikProps } from 'formik';
 import React, { useState } from 'react';
-import { Image, ImageBackground, View } from 'react-native';
+import { Image, View } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
-import theme, { globalStyle } from '@theme';
+import { globalStyle } from '@theme';
 
-export const SignIn = (props: SignInScreenProps): LayoutElement => {
+export const SignIn = (): LayoutElement => {
 	const [shouldRemember, setShouldRemember] = useState<boolean>(false);
 	const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
 	const navigation = useNavigation<GenericNavigationProps>();
 
 	const onFormSubmit = (values: SignInDto): void => {
 		console.log(values);
-		props.navigation.navigate(AppRoute.HOME);
+		navigation.navigate(AppRoute.EMAIL_VERIFICATION);
 	};
 
 	const onPasswordIconPress = (): void => {
@@ -29,11 +27,11 @@ export const SignIn = (props: SignInScreenProps): LayoutElement => {
 	};
 
 	const navigateResetPassword = (): void => {
-		props.navigation.navigate(AppRoute.RESET_PASSWORD);
+		navigation.navigate(AppRoute.RESET_PASSWORD);
 	};
 
 	const navigateSignUp = (): void => {
-		props.navigation.navigate(AppRoute.SIGN_UP);
+		navigation.navigate(AppRoute.SIGN_UP);
 	};
 
 	const renderIcon = props => (

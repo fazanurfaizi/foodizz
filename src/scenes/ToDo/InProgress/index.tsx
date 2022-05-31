@@ -1,7 +1,7 @@
 import { SearchIcon } from '@components/Icon';
 import { ProgressBar } from '@components/ProgressBar';
 import { Todo } from '@dto/todo.model';
-import { AppRoute } from '@types/app.routes';
+import { AppRoute } from '@navigation/app.routes';
 import { TodoInProgressScreenProps } from '@navigation/todo.navigator';
 import {
 	Input,

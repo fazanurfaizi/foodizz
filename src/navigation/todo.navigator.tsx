@@ -10,7 +10,7 @@ import { createStackNavigator, StackNavigationProp } from '@react-navigation/sta
 import { TodoDetail, TodoDone, TodoInProgress } from '@scenes/ToDo';
 import { TodoDetailRouteParams } from '@scenes/ToDo/Detail';
 import React, { FC } from 'react';
-import { AppRoute } from '@types/app.routes';
+import { AppRoute } from '@navigation/types';
 import { TodoTabNavigationProp } from './home.navigator';
 
 type TodoNavigatorParams = {

@@ -1,6 +1,6 @@
 import { SafeAreaLayout, SafeAreaLayoutElement, SaveAreaInset } from '@components/SafeAreaLayout';
 import { BottomHomeScreenProps } from '@navigation/home.navigator';
-import { GenericNavigationProps } from '@types/navigation.types';
+import { GenericNavigationProps } from '@navigation/navigation.types';
 import { useNavigation } from '@react-navigation/core';
 import { BottomNavigation, BottomNavigationTab, Divider, BottomNavigationTabElement } from '@ui-kitten/components';
 import React from 'react';
