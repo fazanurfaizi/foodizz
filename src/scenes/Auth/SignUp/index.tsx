@@ -62,23 +62,24 @@ export const SignUp = (): LayoutElement => {
 	return (
 		<NHCSafeAreaView>
 			<GenericHeader onBackClicked={goBack} title='Sign Up' />
-
-			<KeyboardAwareScrollView contentContainerStyle={[globalStyle.fullContainer, styles.container]}>
-				<View style={[globalStyle.justifyCenter, globalStyle.alignCenter]}>
-					<Image                 
-						source={require('@assets/images/Logo.png')}
-						style={[styles.logo]}
-					/>    	
-				</View> 			
-				<Layout style={styles.formContainer}>
-					<Formik initialValues={SignUpDto.empty()} validationSchema={SignUpSchema} onSubmit={onFormSubmit}>
-						{renderForm}
-					</Formik>
-					<Button style={styles.haveAccountButton} appearance="ghost" status="basic" onPress={navigateSignIn}>
-						Already have an account?
-					</Button>
-				</Layout>
+			<View style={[globalStyle.justifyCenter, globalStyle.alignCenter]}>
+				<Image                 
+					source={require('@assets/images/Logo.png')}
+					style={[styles.logo]}
+				/>    	
+			</View> 
+			<KeyboardAwareScrollView>
+				<View style={styles.inner}>
+					<Layout style={styles.formContainer}>
+						<Formik initialValues={SignUpDto.empty()} validationSchema={SignUpSchema} onSubmit={onFormSubmit}>
+							{renderForm}
+						</Formik>
+						<Button style={styles.haveAccountButton} appearance="ghost" status="basic" onPress={navigateSignIn}>
+							Already have an account?
+						</Button>
+					</Layout>
+				</View>
 			</KeyboardAwareScrollView>
-		</NHCSafeAreaView>		
+		</NHCSafeAreaView>				
 	);
 };

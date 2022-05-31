@@ -1,6 +1,5 @@
 import Splashscreen from '@components/Splashscreen';
 import * as eva from '@eva-design/eva';
-import '@i18n';
 import { AppNavigator } from '@navigation/app.navigator';
 import { AppRoute } from '@navigation/types';
 import { NavigationContainer } from '@react-navigation/native';

@@ -5,15 +5,13 @@ import { getAllFilmsRequest } from '@redux/actions';
 import { allFilms } from '@redux/ghibli/selectors';
 import * as React from 'react';
 import { useCallback, FC, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { View, Text, FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles';
 
 const OtherPage: FC = () => {
 	const dispatch = useDispatch();
-	const allMovies = useSelector(allFilms);
-	const { t } = useTranslation();
+	const allMovies = useSelector(allFilms);	
 	const navigation = useNavigation();
 	const popAction = useCallback(() => StackActions.pop(), []);
 
@@ -36,7 +34,7 @@ const OtherPage: FC = () => {
 
 	return (
 		<NHCSafeAreaView>
-			<GenericHeader onBackClicked={goBack} title={t('AnotherPage:OtherPage')} />
+			<GenericHeader onBackClicked={goBack} title='Another Page' />
 
 			<FlatList
 				data={allMovies}

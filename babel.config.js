@@ -19,8 +19,7 @@ module.exports = {
 				alias: {
 					'@assets': './src/assets',
 					'@components': './src/components',
-					'@dto': './src/dto',
-					'@i18n': './src/i18n',
+					'@dto': './src/dto',					
 					'@redux': './src/redux',
 					'@navigation': './src/navigation',
 					'@scenes': './src/scenes',

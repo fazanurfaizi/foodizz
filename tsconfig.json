@@ -72,9 +72,6 @@
       "@dto/*": [
         "src/dto/*"
       ],
-      "@i18n/*": [
-        "src/i18n/*"
-      ],
       "@redux/*": [
         "src/redux/*"
       ],

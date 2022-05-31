@@ -28,6 +28,9 @@ export const AuthNavigator = (props: Partial<StackNavigationProps>): React.React
 		<Stack.Screen 
 			name={AppRoute.SIGN_UP}
 			component={SignUp} 
+			options={{
+				headerShown: false,
+			}}
 		/>
 		<Stack.Screen
 			name={AppRoute.EMAIL_VERIFICATION}

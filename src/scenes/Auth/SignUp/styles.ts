@@ -3,11 +3,13 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 	container: {
-		padding: theme.spacing.md
+		flex: 1,
 	},
-	appBar: {
-		height: 192,
-	},
+	inner: {
+		padding: theme.spacing.lg,
+		flex: 1,
+		justifyContent: 'space-around',
+	},	  	  
 	logo: {
         width: 120,
         height: 120,
@@ -24,7 +26,7 @@ const styles = StyleSheet.create({
 		marginVertical: 6,
 	},
 	submitButton: {
-		marginVertical: 24,
+		marginVertical: theme.spacing.lg,
 	},
 	haveAccountButton: {
 		alignSelf: 'center',

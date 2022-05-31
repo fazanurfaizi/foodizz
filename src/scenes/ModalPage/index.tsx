@@ -1,16 +1,13 @@
 import GenericModal from '@components/Modals/GenericModal';
 import React, { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import { View, Text } from 'react-native';
 import styles from './styles';
 
 const ModalPage: FC = () => {
-	const [t] = useTranslation();
-
 	return (
-		<GenericModal pageTitle={t('ModalPage:PageName')}>
+		<GenericModal pageTitle='Modal Page'>
 			<View>
-				<Text style={styles.mainText}>{t('ModalPage:thisIsAModal')}</Text>
+				<Text style={styles.mainText}>Show Modal</Text>
 			</View>
 		</GenericModal>
 	);
