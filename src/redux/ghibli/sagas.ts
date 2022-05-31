@@ -8,7 +8,7 @@ import { GetAllFilmsRequestPayload, GetAllFilmsSuccessPayload } from './types';
 function* getAllFilmsSaga({ payload }: PayloadAction<GetAllFilmsRequestPayload>): Generator<
 	| CallEffect
 	| PutEffect<{
-			payload: GetAllFilmsSuccessPayload;
+			payload: GetAllFilmsSuccessPayload|undefined;
 			type: string;
 	  }>,
 	void
@@ -16,7 +16,7 @@ function* getAllFilmsSaga({ payload }: PayloadAction<GetAllFilmsRequestPayload>)
 	const { limit } = payload;
 
 	try {
-		const filmsRes = yield call(FilmsAPI.getAllFilms, { limit });
+		const filmsRes: any = yield call(FilmsAPI.getAllFilms, { limit });
 
 		if (!isEmpty(filmsRes)) {
 			yield put(getAllFilmsSuccess(filmsRes));

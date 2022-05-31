@@ -1,10 +1,15 @@
 import * as Yup from 'yup';
 
 export class SignUpDto {
-	constructor(readonly email: string, readonly username: string, readonly password: string) {}
+	constructor(
+		readonly email: string, 
+		readonly username: string, 
+		readonly password: string,
+		readonly passwordConfirmation: string,
+	) {}
 
 	static empty(): SignUpDto {
-		return new SignUpDto('', '', '');
+		return new SignUpDto('', '', '', '');
 	}
 }
 

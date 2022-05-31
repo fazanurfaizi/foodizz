@@ -1,7 +1,5 @@
 import Splashscreen from '@components/Splashscreen';
 import * as eva from '@eva-design/eva';
-import { AppNavigator } from '@navigation/app.navigator';
-import { AppRoute } from '@navigation/types';
 import { NavigationContainer } from '@react-navigation/native';
 import { store, persistor } from '@redux/store';
 import theme, { globalStyle } from '@theme';
@@ -16,12 +14,11 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { enableScreens } from 'react-native-screens';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { Navigation } from '@navigation/index'
 
 enableScreens();
 
-const App: FC = () => {
-	const isAuthorized = false;
-
+const App: FC = () => {		
 	return (
 		<Suspense fallback={<Splashscreen />}>
 			<ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
@@ -33,7 +30,7 @@ const App: FC = () => {
 								<StatusBar barStyle="dark-content" backgroundColor={palette.WHITE} />
 
 								<Layout style={[globalStyle.flex1, globalStyle.justifyCenter]}>
-									<AppNavigator initialRouteName={isAuthorized ? AppRoute.HOME : AppRoute.AUTH} />
+									<Navigation />
 								</Layout>
 							</NavigationContainer>
 						</SafeAreaProvider>
