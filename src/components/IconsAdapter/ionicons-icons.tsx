@@ -18,8 +18,8 @@ const IconProvider = name => ({
 });
 
 const IoniconsIcon = ({ name, style }) => {
-	const { height, tintColor, ...iconStyle } = StyleSheet.flatten(style);
-	return <Icon name={name} size={height} color={tintColor} style={iconStyle} />;
+	const { ...iconStyle } = StyleSheet.flatten(style);
+	return <Icon name={name} size={18} color='black' style={iconStyle} />;
 };
 
 export const IoniconsIconsPack = {

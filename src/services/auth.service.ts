@@ -1,20 +1,12 @@
+import { SignInDto } from "@dto/auth/SignInDto";
 import { SignUpDto } from "@dto/auth/SignUpDto";
+import { api } from "@utils/api";
+import { AxiosError, AxiosResponse } from "axios";
 
-export class AuthService {
-
-	static signUp(request: SignUpDto) {
-		try {
-			const user = {
-				id: '2af03f8e-0cc7-4de7-aad9-3e251957134b',
-				username: request.username,
-				email: request.email,				
-			}
-
-			return user
-		} catch (error) {
-			console.error('SignUp - Error: ', error)
-			throw error
-		}
-	}
-
+export const signIn = (request: SignInDto): Promise<AxiosResponse|AxiosError> => {
+	return new Promise(async (resolve, reject) => {
+		await api.post('/auth/login', request)
+			.then((response: AxiosResponse) => resolve(response))
+			.catch((error: AxiosError) => reject(error))
+	})
 }

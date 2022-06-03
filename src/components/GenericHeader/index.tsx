@@ -31,8 +31,8 @@ const GenericHeader: FC<IGenericHeader> = ({
 			title={() => (
 				<View style={styles.bodyContainer}>
 					{/*
-            You can pass the page name or a component that will be rendered in the middle of your Header
-          */}
+						You can pass the page name or a component that will be rendered in the middle of your Header
+					*/}
 					<View style={styles.BodyContent}>
 						{!!title && (
 							<Text style={styles.mainPageTitle} numberOfLines={1} ellipsizeMode="tail">
@@ -46,9 +46,9 @@ const GenericHeader: FC<IGenericHeader> = ({
 			accessoryLeft={() => (
 				<View>
 					{/*
-            The GenericHeader component accepts an onBackClicked prop.
-            The route where you want to go is specified in the import of this Header in your scene component
-          */}
+						The GenericHeader component accepts an onBackClicked prop.
+						The route where you want to go is specified in the import of this Header in your scene component
+					*/}
 					{!!onBackClicked && (
 						<TouchableOpacity onPress={onBackClicked} style={styles.backButtonContainer}>
 							<Icon pack="Ionicons" name="arrow-back" style={styles.backButtonIcon} />
@@ -56,8 +56,8 @@ const GenericHeader: FC<IGenericHeader> = ({
 						</TouchableOpacity>
 					)}
 					{/*
-            You can also pass a custom component defined in you scene component for the left section of the Header
-          */}
+						You can also pass a custom component defined in you scene component for the left section of the Header
+					*/}
 					{LeftAction}
 				</View>
 			)}

@@ -1,6 +1,18 @@
-import axiosFactory, { AxiosInstance, AxiosError } from 'axios'
+import env from '@env';
+import axiosFactory, { AxiosInstance, AxiosError, AxiosRequestConfig } from 'axios'
 
 const instance = (axios: AxiosInstance): AxiosInstance => {	
+	axios.interceptors.request.use(
+		(config: AxiosRequestConfig) => {
+			config.baseURL = env.API_URL
+			config.headers = {
+				'Authorization': `Bearer 1234`,
+				'Accept': 'application/json',
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		}
+	)
+
 	axios.interceptors.response.use(
 		(v) => Promise.resolve(v),
 		(error: AxiosError) => {
@@ -57,7 +69,7 @@ const instance = (axios: AxiosInstance): AxiosInstance => {
  * @param {number} options.retryTime
  * @param {number} options.retry_status_code
  */
-const retryWrapper = (axios: AxiosInstance, options: RetryWrapperType) => {
+const retryWrapper = (axios: AxiosInstance, options: RetryWrapperType): AxiosInstance => {
 	const maxTime = options.retryTime;
 	const retryStatusCode = options.retryStatusCode;
 	let counter = 0;
@@ -93,6 +105,8 @@ const retryWrapper = (axios: AxiosInstance, options: RetryWrapperType) => {
 			return Promise.reject(error)
 		}
 	)
+
+	return axios;
 }
 
 type RetryWrapperType = {
@@ -100,7 +114,7 @@ type RetryWrapperType = {
 	retryStatusCode: number;
 }
 
-export const api = retryWrapper(instance(axiosFactory.create()), {
+export const api: AxiosInstance = retryWrapper(instance(axiosFactory.create()), {
 	retryTime: 3,
 	retryStatusCode: 404
 })

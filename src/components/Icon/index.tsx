@@ -18,6 +18,10 @@ export const AlertTriangleIcon = (style: StyleProp<IconProps>): IconElement => (
 	<Icon {...style} name="alert-triangle-outline" />
 );
 
+export const CloseIcon = (style: StyleProp<IconProps>): IconElement => (
+	<Icon {...style} name="close" />
+)
+
 export const EyeIcon = (style: StyleProp<IconProps>): IconElement => <Icon {...style} name="eye-outline" />;
 
 export const EyeOffIcon = (style: StyleProp<IconProps>): IconElement => <Icon {...style} name="eye-off-outline" />;
@@ -35,3 +39,11 @@ export const GridIcon = (style: StyleProp<IconProps>): IconElement => <Icon {...
 export const SearchIcon = (style: StyleProp<IconProps>): IconElement => <Icon {...style} name="search-outline" />;
 
 export const PlusIcon = (style: StyleProp<IconProps>): IconElement => <Icon {...style} name="plus-outline" />;
+
+export const ShareIcon = (style: StyleProp<IconProps>): IconElement => <Icon {...style} name="share-social-outline" pack='Ionicons' />
+
+export const ChatBubbleIcon = (style: StyleProp<IconProps>): IconElement => <Icon {...style} name="chatbubble-outline" pack='Ionicons' />
+
+export const BookmarkIcon = (style: StyleProp<IconProps>): IconElement => <Icon {...style} name="bookmarks-outline" pack='Ionicons' />
+
+export const NotificationsIcon = (style: StyleProp<IconProps>): IconElement => <Icon {...style} name="notifications-outline" pack='Ionicons' />

@@ -7,19 +7,25 @@ import { Icon } from '@ui-kitten/components';
 import { Formik, FormikProps } from 'formik';
 import React, { useState } from 'react';
 import { Image, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { SignInRequest } from '@redux/auth/actions' 
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import { globalStyle } from '@theme';
+import { authLoading } from '@redux/auth/selector';
 
 export const SignIn = (): LayoutElement => {
+	const dispatch = useDispatch();
 	const [shouldRemember, setShouldRemember] = useState<boolean>(false);
 	const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
 	const navigation = useNavigation<GenericNavigationProps>();
 
+	const loading = useSelector(authLoading);
+
 	const onFormSubmit = (values: SignInDto): void => {
-		console.log(values);
-		navigation.navigate(AppRoute.EMAIL_VERIFICATION);
+		dispatch(SignInRequest(values));
+		// navigation.navigate(AppRoute.EMAIL_VERIFICATION);
 	};
 
 	const onPasswordIconPress = (): void => {
@@ -52,7 +58,7 @@ export const SignIn = (): LayoutElement => {
 				style={styles.formControl}
 				placeholder="Password"
 				secureTextEntry={!passwordVisible}
-				accessoryRight={renderIcon}
+				accessoryRight={renderIcon}				
 			/>
 			<View style={styles.resetPasswordContainer}>
 				<CheckBox style={styles.formControl} checked={shouldRemember} onChange={setShouldRemember}>
@@ -63,7 +69,7 @@ export const SignIn = (): LayoutElement => {
 				</Button>
 			</View>
 			<Button style={styles.submitButton} onPress={props.handleSubmit}>
-				SIGN IN
+				{loading ? 'Loading' : 'SIGN IN'}				
 			</Button>
 		</React.Fragment>
 	);

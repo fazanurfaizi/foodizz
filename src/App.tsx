@@ -15,18 +15,22 @@ import { enableScreens } from 'react-native-screens';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Navigation } from '@navigation/index'
+import { navigationRef } from '@utils/navigationUtils';
 
 enableScreens();
 
-const App: FC = () => {		
+const App: FC = () => {			
 	return (
 		<Suspense fallback={<Splashscreen />}>
 			<ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
-				<IconRegistry icons={[EvaIconsPack, IoniconsIconsPack]} />
+				<IconRegistry icons={[
+					EvaIconsPack, 
+					IoniconsIconsPack, 					
+				]} />
 				<Provider store={store}>
 					<PersistGate loading={<Splashscreen />} persistor={persistor}>
 						<SafeAreaProvider>
-							<NavigationContainer>
+							<NavigationContainer ref={navigationRef}>
 								<StatusBar barStyle="dark-content" backgroundColor={palette.WHITE} />
 
 								<Layout style={[globalStyle.flex1, globalStyle.justifyCenter]}>

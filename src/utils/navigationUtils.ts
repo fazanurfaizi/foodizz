@@ -1,11 +1,11 @@
 import { NavigationContainerRef, StackActions } from '@react-navigation/native';
 import { createRef } from 'react';
 
-export const navigationRef = createRef<NavigationContainerRef>();
+export const navigationRef = createRef<NavigationContainerRef<any>>();
 export const isMountedRef = createRef();
 
 interface NavigateProps {
-	(name: string, params: Record<string, unknown>): void;
+	(name: string, params?: Record<string, unknown>): void;
 }
 
 // Use this function to navigate to specific page when you are using Redux-Saga

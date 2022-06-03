@@ -5,6 +5,8 @@ export enum AppRoute {
 	EMAIL_VERIFICATION = 'Email Verification',
 	RESET_PASSWORD = 'Reset Passrord',
 	HOME = 'Home',
+	NEWS = 'News',
+	NEWS_DETAIL = 'News Details',
 	TODO = 'ToDo',
 	TODO_IN_PROGRESS = 'ToDo In Progress',
 	TODO_DONE = 'ToDo Done',

@@ -1,5 +1,5 @@
 import { DoneAllIcon, GridIcon } from '@components/Icon';
-import { TodoTabBar } from '@components/TodoTabBar';
+import { TodoTabBar } from '@components/TabBar/TodoTabBar';
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/core';
 import {
 	createMaterialTopTabNavigator,

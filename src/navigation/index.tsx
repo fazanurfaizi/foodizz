@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { isAuthenticated } from '@redux/auth/selector';
 
 export const Navigation: FC = () => {
-	const auth = useSelector(isAuthenticated)
+	const auth = useSelector(isAuthenticated)	
 	
 	return (
 		<AppNavigator initialRouteName={auth ? AppRoute.HOME : AppRoute.AUTH} />

@@ -25,6 +25,7 @@ module.exports = {
 					'@scenes': './src/scenes',
 					'@services': './src/services',
 					'@theme': './src/theme',
+					'@models': './src/models',					
 					'@utils': './src/utils',					
 					'@options': './src/options',
 					'@env': './src/env.js',

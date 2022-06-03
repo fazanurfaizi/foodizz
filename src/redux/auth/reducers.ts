@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit'
 import {
-	SignUpRequest, SignUpSuccess, SignUpFailed
+	SignUpRequest, SignUpSuccess, SignUpFailed, SignInRequest, SignInSuccess, SignInFailed
 } from './actions'
 
 export interface IAuthState {
@@ -15,7 +15,7 @@ export interface IAuthState {
 
 const initialState: IAuthState = {
 	loading: false,
-	isAuthenticated: false,
+	isAuthenticated: true,
 	user: null
 }
 
@@ -34,5 +34,21 @@ export const authReducer = createReducer(initialState, {
 		state.loading = true;
 		state.isAuthenticated = false;
 		state.user = null
-	}
+	},
+	
+	[SignInRequest.type]: state => {
+		state.loading = true;
+		state.isAuthenticated = false;
+		state.user = null
+	},
+	[SignInSuccess.type]: (state, action) => {
+		state.loading = false;
+		state.isAuthenticated = true;
+		state.user = action.payload
+	},
+	[SignInFailed.type]: state => {
+		state.loading = true;
+		state.isAuthenticated = false;
+		state.user = null
+	},
 })

@@ -1,14 +1,15 @@
 import { HomeDrawer } from '@components/HomeDrawer';
-import HomeTabBar from '@components/HomeTabBar';
-import { HomeIcon, InfoIcon, LayoutIcon, PersonIcon } from '@components/Icon';
+import HomeTabBar from '@components/TabBar/HomeTabBar';
+import { HomeIcon, LayoutIcon, PersonIcon } from '@components/Icon';
 import { BottomTabBarProps, BottomTabNavigationProp, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { CompositeNavigationProp } from '@react-navigation/core';
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerNavigationProp } from '@react-navigation/drawer';
-import OtherPage from '@scenes/OtherPage';
 import React, { FC } from 'react';
 import { AppRoute } from '@navigation/types';
 import { ProfileNavigator } from './profile.navigator';
 import { TodoNavigator } from './todo.navigator';
+import { News } from '@scenes/Home/News';
+import { NewsNavigator } from './news.navigator';
 
 type HomeDrawerNavigatorParams = {
 	[AppRoute.HOME]: undefined;
@@ -45,11 +46,11 @@ const HomeBottomNavigator: FC = () => (
 	// @ts-ignore: `tabBar` also contains a DrawerNavigationProp
 	<BottomTab.Navigator tabBar={props => <HomeTabBar {...props} />}>
 		<BottomTab.Screen
-			name={AppRoute.TODO}
-			component={TodoNavigator}
+			name={AppRoute.NEWS}
+			component={NewsNavigator}
 			options={{
-				title: 'TODO',
-				tabBarIcon: LayoutIcon,
+				title: 'News',
+				tabBarIcon: HomeIcon,
 				headerShown: false,
 			}}
 		/>
@@ -77,16 +78,7 @@ export const HomeNavigator: FC = () => {
 					drawerIcon: HomeIcon,
 					headerShown: false,
 				}}
-			/>
-			<Drawer.Screen
-				name={AppRoute.ABOUT}
-				component={OtherPage}
-				options={{
-					title: 'About',
-					drawerIcon: InfoIcon,
-					headerShown: false,
-				}}
-			/>
+			/>			
 		</Drawer.Navigator>
 	);
 };
